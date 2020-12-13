@@ -1,0 +1,7 @@
+{
+	"name": "@mckayla/ts",
+	"version": "1.0.0",
+	"description": "TypeScript config for me and no one else",
+	"author": "McKayla Washburn <mckayla@hey.com>",
+	"license": "MIT"
+}
