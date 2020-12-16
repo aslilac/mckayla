@@ -1,31 +1,35 @@
-const assert = require("assert");
+const messages = {};
 
-module.exports = {
+export default {
 	meta: {
 		type: "layout",
 
 		docs: {
-			description: "disallow unnecessary semicolons",
-			category: "Possible Errors",
+			description: "Organize imports in a reasonable way",
+			category: "Layout",
 			recommended: true,
-			url: "https://eslint.org/docs/rules/no-extra-semi",
 		},
-		// fixable: "code",
+
+		messages,
+		fixable: "code",
 		schema: [], // no options
 	},
 
 	create(context) {
-		// declare the state of the rule
 		return {
+			Program(node) {
+				node.body.forEach(() => {});
+			},
+
 			ImportDeclaration(node) {
 				// console.log(node);
 				console.log(`"${node.source.value}"`);
 
-				const validationState = {
-					defaultImport: null,
-					namespacedImport: null,
-					namedImports: [],
-				};
+				// const validationState = {
+				// 	defaultImport: null,
+				// 	namespacedImport: null,
+				// 	namedImports: [],
+				// };
 
 				node.specifiers.forEach((spec) => {
 					if (spec.type === "ImportSpecifier") {
@@ -68,4 +72,4 @@ module.exports = {
 			// },
 		};
 	},
-};
+} as ESLint.RuleFactory<keyof typeof messages>;

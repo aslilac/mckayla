@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	parser: "@typescript-eslint/parser",
 	overrides: [
 		{
@@ -12,10 +12,7 @@ module.exports = {
 				"prettier/@typescript-eslint",
 			],
 			rules: {
-				"@typescript-eslint/array-type": [
-					"error",
-					{ default: "array-simple" },
-				],
+				"@typescript-eslint/array-type": ["error", { default: "array-simple" }],
 				"@typescript-eslint/no-explicit-any": "error",
 				// I find this entirely too useful to make an error, but it
 				// can be useful. Maybe I should leave it a warning and manually
@@ -64,4 +61,4 @@ module.exports = {
 		"symbol-description": "error",
 		"yoda": "error",
 	},
-};
+} as ESLint.Config;

@@ -1,0 +1,8 @@
+{
+	"extends": "@mckayla/ts/tsconfig.json",
+	"compilerOptions": {
+		"module": "commonjs",
+		"outDir": "target"
+	},
+	"include": ["../@types/**/*.d.ts", "src/**/*"]
+}

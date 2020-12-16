@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	extends: [
 		"plugin:@mckayla/ts",
 		"plugin:react/recommended",
@@ -10,4 +10,4 @@ module.exports = {
 	rules: {
 		"react-hooks/exhaustive-deps": "off",
 	},
-};
+} as ESLint.Config;
