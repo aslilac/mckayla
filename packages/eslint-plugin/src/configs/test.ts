@@ -20,6 +20,6 @@ export default {
 		node: true,
 	},
 	rules: {
-		"@mckayla/sane-imports": "error",
+		"@mckayla/imports": "error",
 	},
 } as ESLint.Config;

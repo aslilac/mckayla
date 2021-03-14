@@ -2,11 +2,11 @@ import test from "./configs/test";
 import ts from "./configs/ts";
 import tsx from "./configs/tsx";
 
-import saneImports from "./rules/sane-imports";
+import saneImports from "./rules/imports";
 
 export = {
 	rules: {
-		"sane-imports": saneImports,
+		imports: saneImports,
 	},
 	configs: {
 		test,

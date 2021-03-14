@@ -13,11 +13,13 @@ export default {
 			],
 			rules: {
 				"@typescript-eslint/array-type": ["error", { default: "array-simple" }],
+				"@typescript-eslint/explicit-module-boundary-types": "off",
 				"@typescript-eslint/no-explicit-any": "error",
 				// I find this entirely too useful to make an error, but it
 				// can be useful. Maybe I should leave it a warning and manually
 				// disable it with comments.
 				"@typescript-eslint/no-non-null-assertion": "off",
+				"@typescript-eslint/no-unused-vars": "off",
 				"@typescript-eslint/prefer-readonly": "error",
 				"@typescript-eslint/prefer-ts-expect-error": "error",
 				"@typescript-eslint/strict-boolean-expressions": "error",

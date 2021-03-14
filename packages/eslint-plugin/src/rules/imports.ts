@@ -1,5 +1,7 @@
 const messages = {};
 
+const defaultOptions = [["@.+/.+", "[A-Z][a-z].+"], ["./*"]];
+
 export default {
 	meta: {
 		type: "layout",

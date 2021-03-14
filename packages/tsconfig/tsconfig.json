@@ -3,12 +3,16 @@
 		"esModuleInterop": true,
 		"experimentalDecorators": true,
 		"forceConsistentCasingInFileNames": true,
+		"jsx": "preserve",
 		"module": "esnext",
 		"moduleResolution": "node",
+		"noEmitOnError": true,
 		"noFallthroughCasesInSwitch": true,
 		"noImplicitReturns": true,
 		"noUncheckedIndexedAccess": true,
 		"noUnusedLocals": true,
+		"resolveJsonModule": true,
+		"sourceMap": true,
 		"strict": true,
 		"target": "esnext"
 	}

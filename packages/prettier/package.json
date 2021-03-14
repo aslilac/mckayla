@@ -1,7 +1,7 @@
 {
 	"name": "@mckayla/prettier",
-	"version": "1.0.0",
-	"description": "ESLint config for me and no one else",
+	"version": "0.8.90",
+	"description": "Prettier config for me and no one else",
 	"author": "McKayla Washburn <mckayla@hey.com>",
 	"license": "MIT"
 }

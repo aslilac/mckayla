@@ -1,5 +1,5 @@
 {
-	"extends": "@mckayla/ts/tsconfig.json",
+	"extends": "@mckayla/tsconfig",
 	"compilerOptions": {
 		"module": "commonjs",
 		"outDir": "target"
