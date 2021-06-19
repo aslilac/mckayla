@@ -4,7 +4,7 @@ export default {
 		"plugin:react/recommended",
 		"plugin:react-hooks/recommended",
 		"plugin:jsx-a11y/strict",
-		"prettier/react",
+		"prettier",
 	],
 	settings: { react: { version: "detect" } },
 	rules: {

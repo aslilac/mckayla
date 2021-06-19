@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { ModuleContext, WorkspaceContext } from "../base/context";
 
 export const workspace = (cx: WorkspaceContext) => {
@@ -14,40 +16,42 @@ export const module = (cx: ModuleContext) => {
 
 	name: REQUIRED;
 
-	pkg.requireKeys([
-		"name",
-		"version",
-		"author",
-		"description",
-		"license",
-		"main",
-		"types",
-		"homepage",
-		"repository",
-		"bugs",
-	]).sortKeys([
-		"private",
-		"name",
-		"version",
-		"author",
-		"description",
-		"license",
-		"main",
-		"bin",
-		"browser",
-		"renderer",
-		"types",
-		"homepage",
-		"repository",
-		"bugs",
-		"keywords",
-		"targets",
-		"browserslist",
-		"config",
-		"dependencies",
-		"devDependencies",
-		"scripts",
-	]);
+	pkg
+		.requireKeys([
+			"name",
+			"version",
+			"author",
+			"description",
+			"license",
+			"main",
+			"types",
+			"homepage",
+			"repository",
+			"bugs",
+		])
+		.sortKeys([
+			"private",
+			"name",
+			"version",
+			"author",
+			"description",
+			"license",
+			"main",
+			"bin",
+			"browser",
+			"renderer",
+			"types",
+			"homepage",
+			"repository",
+			"bugs",
+			"keywords",
+			"targets",
+			"browserslist",
+			"config",
+			"dependencies",
+			"devDependencies",
+			"scripts",
+		]);
 
 	pkg.setKey("author", `${cx.config.name} <${cx.config.email}>`);
 	pkg.setKey("license", "MIT");

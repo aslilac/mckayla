@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+
+# Developer tools
+.vscode
+
+# Dependencies
+node_modules/
+
+# Build artifacts
+target/

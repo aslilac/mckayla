@@ -22,7 +22,6 @@ export default {
 				"@typescript-eslint/no-unused-vars": "off",
 				"@typescript-eslint/prefer-readonly": "error",
 				"@typescript-eslint/prefer-ts-expect-error": "error",
-				"@typescript-eslint/strict-boolean-expressions": "error",
 			},
 		},
 		{

@@ -9,8 +9,8 @@
 	"homepage": "https://github.com/partheseas/ok",
 	"repository": "https://github.com/partheseas/ok",
 	"bugs": "https://github.com/partheseas/ok/issues",
-	"devDependencies": {
-		"typescript": "^4.1.3"
+	"dependencies": {
+		"@mckayla/ok": "*"
 	},
 	"scripts": {
 		"build": "tsc -p ."
