@@ -1,6 +1,6 @@
 {
 	"name": "@mckayla/prettier",
-	"version": "2.0.0",
+	"version": "1.0.1",
 	"description": "Prettier config for me and no one else",
 	"author": "McKayla Washburn <mckayla@hey.com>",
 	"license": "MIT",

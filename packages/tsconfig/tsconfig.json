@@ -2,9 +2,11 @@
 	"compilerOptions": {
 		"declaration": true,
 		"esModuleInterop": true,
+		"exactOptionalPropertyTypes": false,
 		"experimentalDecorators": true,
 		"forceConsistentCasingInFileNames": true,
 		"jsx": "preserve",
+		"importsNotUsedAsValues": "remove",
 		"incremental": true,
 		"isolatedModules": true,
 		"module": "esnext",
@@ -23,6 +25,8 @@
 		"resolveJsonModule": true,
 		"sourceMap": true,
 		"strict": true,
-		"target": "esnext"
+		"target": "esnext",
+		"useDefineForClassFields": true,
+		"useUnknownInCatchVariables": true
 	}
 }

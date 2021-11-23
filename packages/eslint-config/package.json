@@ -1,9 +1,13 @@
 {
 	"name": "eslint-config-mckayla",
-	"version": "0.1.10",
+	"version": "1.0.4",
+	"description": "ESLint config for me and no one else",
 	"author": "McKayla Washburn <mckayla@hey.com>",
 	"license": "MIT",
+	"keywords": [
+		"eslint"
+	],
 	"dependencies": {
-		"@mckayla/eslint-plugin": "0.1.10"
+		"@mckayla/eslint-plugin": "0.1.15"
 	}
 }

@@ -1,5 +1,13 @@
 export default {
 	parser: "@typescript-eslint/parser",
+	ignorePatterns: ["build/**/*", "dist/**/*", "target/**/*"],
+	extends: ["eslint:recommended", "prettier"],
+	reportUnusedDisableDirectives: true,
+	env: {
+		es2020: true,
+		browser: true,
+		node: true,
+	},
 	overrides: [
 		{
 			files: ["*.ts?(x)"],
@@ -9,19 +17,21 @@ export default {
 			extends: [
 				"plugin:@typescript-eslint/recommended",
 				"plugin:@typescript-eslint/recommended-requiring-type-checking",
-				"prettier/@typescript-eslint",
 			],
 			rules: {
 				"@typescript-eslint/array-type": ["error", { default: "array-simple" }],
 				"@typescript-eslint/explicit-module-boundary-types": "off",
 				"@typescript-eslint/no-explicit-any": "error",
+				"@typescript-eslint/no-namespace": "off",
 				// I find this entirely too useful to make an error, but it
 				// can be useful. Maybe I should leave it a warning and manually
 				// disable it with comments.
 				"@typescript-eslint/no-non-null-assertion": "off",
+				"@typescript-eslint/no-shadow": "error",
 				"@typescript-eslint/no-unused-vars": "off",
 				"@typescript-eslint/prefer-readonly": "error",
 				"@typescript-eslint/prefer-ts-expect-error": "error",
+				"no-shadow": "off",
 			},
 		},
 		{
@@ -30,14 +40,6 @@ export default {
 			env: { "jest/globals": true },
 		},
 	],
-	ignorePatterns: ["build/**/*", "dist/**/*", "target/**/*"],
-	extends: ["eslint:recommended", "prettier"],
-	reportUnusedDisableDirectives: true,
-	env: {
-		es2020: true,
-		browser: true,
-		node: true,
-	},
 	rules: {
 		"class-methods-use-this": "error",
 		"eqeqeq": ["error", "always", { null: "ignore" }],
