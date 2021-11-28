@@ -1,0 +1,11 @@
+{
+	"extends": "@mckayla/tsconfig",
+	"compilerOptions": {
+		"outDir": "./target",
+		"baseUrl": ".",
+		"paths": {
+			"^/*": ["./src"]
+		}
+	},
+	"include": ["./src/**/*"]
+}

@@ -1,0 +1,41 @@
+{
+	"name": "",
+	"version": "0.0.0",
+	"author": "McKayla Washburn <mckayla@hey.com>",
+	"description": "",
+	"keywords": [],
+	"license": "MIT",
+	"homepage": "",
+	"repository": "https://github.com/",
+	"type": "commonjs",
+	"main": "./target/main.js",
+	"module": "./target/module/main.d.ts",
+	"types": "./target/main.d.ts",
+	"exports": {},
+	"bin": {},
+	"files": [
+		"target/**"
+	],
+	"dependencies": {},
+	"devDependencies": {
+		"@mckayla/prettier": "^1.0.1",
+		"@mckayla/tsconfig": "^1.0.1",
+		"@types/jest": "^27.0.3",
+		"eslint": "^8.3.0",
+		"eslint-config-mckayla": "^1.0.4",
+		"prettier": "^2.5.0",
+		"jest": "^27.3.1",
+		"ts-jest": "^27.0.7",
+		"typescript": "^4.5.2"
+	},
+	"scripts": {
+		"build": "npm run build:cjs && npm run build:esm",
+		"build:cjs": "tsc -p tsconfig.build.json --module commonjs --declaration",
+		"build:esm": "tsc -p tsconfig.build.json --module esnext --outdir target/module",
+		"dev": "tsc -p tsconfig.build.json -w --preserveWatchOutput",
+		"fmt": "prettier --ignore-path .gitignore --write .",
+		"lint": "eslint .",
+		"prepack": "npm run build",
+		"test": "jest"
+	}
+}

@@ -4,6 +4,7 @@
 	"description": "TypeScript config for me and no one else",
 	"author": "McKayla Washburn <mckayla@hey.com>",
 	"license": "MIT",
+	"repository": "https://github.com/aslilac/mckayla",
 	"keywords": [
 		"typescript",
 		"tsconfig"
