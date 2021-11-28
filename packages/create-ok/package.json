@@ -1,16 +1,19 @@
 {
 	"name": "create-ok",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"author": "McKayla Washburn <mckayla@hey.com>",
 	"description": "Create an ok project",
+	"keywords": [],
 	"license": "MIT",
+	"homepage": "https://github.com/aslilac/mckayla",
+	"repository": "https://github.com/aslilac/mckayla",
+	"bugs": "https://github.com/aslilac/mckayla/issues",
 	"type": "module",
 	"bin": "./target/create-ok.js",
-	"homepage": "https://github.com/partheseas/ok",
-	"repository": "https://github.com/partheseas/ok",
-	"bugs": "https://github.com/partheseas/ok/issues",
+	"files": [
+		"./target/**"
+	],
 	"dependencies": {
-		"@mckayla/ok": "*",
 		"node-fetch": "^3.1.0",
 		"succulent": "^0.13.0"
 	},
