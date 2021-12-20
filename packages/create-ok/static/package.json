@@ -12,7 +12,10 @@
 	"main": "./target/main.js",
 	"module": "./target/module/main.js",
 	"types": "./target/main.d.ts",
-	"exports": {},
+	"exports": {
+		"require": "./target/main.js",
+		"import": "./target/module/main.js"
+	},
 	"bin": {},
 	"files": [
 		"target/**"
