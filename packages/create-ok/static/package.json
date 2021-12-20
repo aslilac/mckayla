@@ -10,7 +10,7 @@
 	"bugs": "https://github.com/{{repo}}/issues",
 	"type": "commonjs",
 	"main": "./target/main.js",
-	"module": "./target/module/main.d.ts",
+	"module": "./target/module/main.js",
 	"types": "./target/main.d.ts",
 	"exports": {},
 	"bin": {},

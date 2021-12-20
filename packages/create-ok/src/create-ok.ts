@@ -8,10 +8,12 @@ type ArtifactName =
 	| ".github/workflows/main.yml"
 	| ".eslintrc.json"
 	| ".gitignore"
+	| ".prettierignore"
 	| ".prettierrc.json"
 	| "CODE_OF_CONDUCT.md"
 	| "jest.config.js"
 	| "LICENSE"
+	| "package.json"
 	| "tsconfig.build.json"
 	| "tsconfig.json";
 
@@ -36,8 +38,10 @@ const artifactSources = new Map<ArtifactName, string>([
 	artifact(".github/workflows/main.yml"),
 	artifact(".eslintrc.json"),
 	artifact(".gitignore"),
+	artifact(".prettierignore"),
 	artifact(".prettierrc.json"),
 	artifact("jest.config.js"),
+	artifact("package.json"),
 	artifact("tsconfig.build.json"),
 	artifact("tsconfig.json"),
 
@@ -46,7 +50,7 @@ const artifactSources = new Map<ArtifactName, string>([
 	artifact("LICENSE", { repo: "aslilac/aslilac" }),
 ]);
 
-const [artifactName] = process.argv.slice(2);
+const artifactNames = process.argv.slice(2);
 
 async function placeFile(artifactName: ArtifactName) {
 	const source = artifactSources.get(artifactName)!;
@@ -59,11 +63,14 @@ async function placeFile(artifactName: ArtifactName) {
 }
 
 async function main() {
-	if (!is(artifactName, oneOf(artifactSources.keys()))) {
-		throw new Error("Invalid file name!");
-	}
+	for (const artifactName of artifactNames) {
+		if (!is(artifactName, oneOf(artifactSources.keys()))) {
+			console.error("Invalid file name:", artifactName);
+			continue;
+		}
 
-	placeFile(artifactName);
+		placeFile(artifactName);
+	}
 }
 
 // if (module === require.main) {

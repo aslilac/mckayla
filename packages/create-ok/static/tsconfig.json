@@ -4,7 +4,7 @@
 		"outDir": "./target",
 		"baseUrl": ".",
 		"paths": {
-			"^/*": ["./src"]
+			"^/*": ["./src/*"]
 		}
 	},
 	"include": ["./src/**/*"]
