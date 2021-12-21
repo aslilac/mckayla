@@ -26,6 +26,7 @@
 		"sourceMap": true,
 		"strict": true,
 		"target": "esnext",
+		"types": [],
 		"useDefineForClassFields": true,
 		"useUnknownInCatchVariables": true
 	}
