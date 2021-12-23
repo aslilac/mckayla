@@ -2,6 +2,7 @@
 	"extends": "@mckayla/tsconfig",
 	"compilerOptions": {
 		"outDir": "./target",
+		"types": ["jest"],
 		"baseUrl": ".",
 		"paths": {
 			"^/*": ["./src/*"]
