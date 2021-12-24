@@ -47,13 +47,6 @@ export function pipe<T, X>(initialValue: T, transformer: (x: T) => X): X {
 // 	(x) => [[[x]]] as const,
 // );
 
-export function use<T>(initialValue: T, ...transformers: Array<(x: T) => void>): T {
-	return transformers.reduce((value, transformer) => {
-		transformer(value);
-		return value;
-	}, initialValue);
-}
-
 // console.log(
 // 	use(
 // 		document.createElement("main"),
@@ -87,10 +80,3 @@ export function safeRun<T, A extends any[]>(
 // console.log(safeRun(() => JSON.parse("[0]") as number[], []));
 
 // console.log(safeRun(JSON.parse, null, ["[f]"]));
-
-export async function thread(runLoop: () => Promise<boolean> | boolean) {
-	let exec = true;
-	do {
-		exec = await Promise.resolve(runLoop());
-	} while (exec);
-}

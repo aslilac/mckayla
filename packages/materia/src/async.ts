@@ -28,26 +28,6 @@ function run<T, R, N>(iter: Iterator<T, R, N>): [RunRef<R>, Generator<T, void, u
 	return [ref, $run(iter, ref)];
 }
 
-export function nextYield<T, R, N>(iterator: Iterator<T, R, N>, n: N): T {
-	const next = iterator.next(n);
-
-	// This sucks?? Why does it need to have === true??
-	if (next.done === true) {
-		throw new Error("Iterator is already exhausted");
-	}
-
-	return next.value;
-}
-
-function* hi(j: number) {
-	for (let i = 0; i < j; i++) {
-		yield i;
-	}
-
-	console.log("returning");
-	return -1;
-}
-
 export function of<T, R, N>(iter: Iterator<T, R, N | undefined>, body: (each: T) => N) {
 	let previous: N | undefined;
 
@@ -60,18 +40,6 @@ export function of<T, R, N>(iter: Iterator<T, R, N | undefined>, body: (each: T)
 
 		previous = body(next.value);
 	} while (true);
-}
-
-export function* range(j: number) {
-	for (let i = 0; i < j; i++) {
-		// if (i % 2 === 0) {
-		//     throw new Error(`I hate even numbers, such as ${i} :)`);
-		// }
-
-		yield i;
-	}
-
-	return -1;
 }
 
 // const [ref, iter] = run(range(5));
