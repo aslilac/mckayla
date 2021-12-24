@@ -5,6 +5,7 @@
 		"types": ["jest"],
 		"baseUrl": ".",
 		"paths": {
+			"{{name}}": ["./src/main"],
 			"^/*": ["./src/*"]
 		}
 	},
