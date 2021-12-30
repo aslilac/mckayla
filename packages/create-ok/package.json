@@ -1,6 +1,6 @@
 {
 	"name": "create-ok",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"author": "McKayla Washburn <mckayla@hey.com>",
 	"description": "Create an ok project",
 	"keywords": [],
@@ -11,7 +11,7 @@
 	"type": "module",
 	"bin": "./target/create-ok.js",
 	"files": [
-		"./target/**"
+		"target/**"
 	],
 	"dependencies": {
 		"node-fetch": "^3.1.0",

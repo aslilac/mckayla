@@ -5,11 +5,14 @@ import fetch from "node-fetch";
 import { is, oneOf } from "succulent";
 
 type ArtifactName =
+	| ".clang-format"
 	| ".github/workflows/main.yml"
 	| ".eslintrc.json"
 	| ".gitignore"
 	| ".prettierignore"
 	| ".prettierrc.json"
+	| ".swift-format.json"
+	| "Cargo.toml"
 	| "CODE_OF_CONDUCT.md"
 	| "jest.config.js"
 	| "LICENSE"
@@ -40,6 +43,7 @@ const artifactSources = new Map<ArtifactName, string>([
 	artifact(".gitignore"),
 	artifact(".prettierignore"),
 	artifact(".prettierrc.json"),
+	artifact(".swift-format.json"),
 	artifact("jest.config.js"),
 	artifact("package.json"),
 	artifact("tsconfig.build.json"),

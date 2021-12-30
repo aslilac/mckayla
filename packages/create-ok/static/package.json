@@ -1,5 +1,5 @@
 {
-	"name": "",
+	"name": "{{name}}",
 	"version": "0.0.0",
 	"author": "McKayla Washburn <mckayla@hey.com>",
 	"description": "",

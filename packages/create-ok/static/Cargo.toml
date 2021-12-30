@@ -1,0 +1,15 @@
+[package]
+name = "{{name}}"
+version = "0.0.0"
+authors = ["McKayla Washburn <mckayla@hey.com>"]
+description = ""
+keywords = []
+license = "MIT"
+homepage = "https://github.com/{{repo}}"
+repository = "https://github.com/{{repo}}"
+documentation = "https://docs.rs/crate/{{name}}"
+edition = "2021"
+
+[dependencies]
+lazy_static = "1.4.0"
+num_enum = "0.4.1"
