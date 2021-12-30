@@ -38,12 +38,14 @@ function artifact(
 
 const artifactSources = new Map<ArtifactName, string>([
 	// Files from this repo
+	artifact(".clang-format"),
 	artifact(".github/workflows/main.yml"),
 	artifact(".eslintrc.json"),
 	artifact(".gitignore"),
 	artifact(".prettierignore"),
 	artifact(".prettierrc.json"),
 	artifact(".swift-format.json"),
+	artifact("Cargo.toml"),
 	artifact("jest.config.js"),
 	artifact("package.json"),
 	artifact("tsconfig.build.json"),
