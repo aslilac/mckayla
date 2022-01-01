@@ -1,0 +1,17 @@
+{
+	"name": "stylelint-config-mckayla",
+	"version": "0.1.0",
+	"author": "McKayla Washburn <mckayla@hey.com>",
+	"description": "Stylelint config for me and no one else",
+	"keywords": [
+		"stylelint"
+	],
+	"license": "MIT",
+	"homepage": "https://github.com/aslilac/mckayla",
+	"repository": "https://github.com/aslilac/mckayla",
+	"bugs": "https://github.com/aslilac/mckayla/issues",
+	"dependencies": {
+		"stylelint-config-standard": "^24.0.0",
+		"stylelint-config-standard-scss": "^3.0.0"
+	}
+}
