@@ -11,6 +11,7 @@ type ArtifactName =
 	| ".gitignore"
 	| ".prettierignore"
 	| ".prettierrc.json"
+	| ".stylelintrc.json"
 	| ".swift-format.json"
 	| "Cargo.toml"
 	| "CODE_OF_CONDUCT.md"
@@ -44,6 +45,7 @@ const artifactSources = new Map<ArtifactName, string>([
 	artifact(".gitignore"),
 	artifact(".prettierignore"),
 	artifact(".prettierrc.json"),
+	artifact(".stylelintrc.json"),
 	artifact(".swift-format.json"),
 	artifact("Cargo.toml"),
 	artifact("jest.config.js"),

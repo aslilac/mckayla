@@ -1,7 +1,17 @@
 {
-	"extends": ["stylelint-config-standard", "stylelint-config-recess-order"],
-	"overrides": {
-		"files": "**/*.scss",
-		"extends": "stylelint-config-standard-scss"
-	}
+	"extends": [
+		"stylelint-config-standard",
+		"stylelint-config-prettier",
+		"stylelint-config-recess-order"
+	],
+	"overrides": [
+		{
+			"files": "**/*.scss",
+			"extends": [
+				"stylelint-config-standard-scss",
+				"stylelint-config-prettier",
+				"stylelint-config-recess-order"
+			]
+		}
+	]
 }
