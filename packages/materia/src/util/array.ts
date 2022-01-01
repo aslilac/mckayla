@@ -9,3 +9,6 @@ export function mapLength<T>(length: number, map: (index: number, arr: T[]) => T
 
 	return arr;
 }
+
+export const pickOne = <T>(list: T[]): T =>
+	list[Math.floor(Math.random() * list.length)]!;
