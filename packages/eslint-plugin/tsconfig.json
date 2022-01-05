@@ -2,8 +2,9 @@
 	"extends": "@mckayla/tsconfig",
 	"compilerOptions": {
 		"module": "commonjs",
+		"noImplicitAny": false,
 		"outDir": "target",
-		"noImplicitAny": false
+		"types": ["jest"]
 	},
 	"include": ["../@types/**/*.d.ts", "src/**/*"]
 }

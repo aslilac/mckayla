@@ -5,5 +5,5 @@
 		"outDir": "target",
 		"noUnusedLocals": false
 	},
-	"include": ["src/**/*"]
+	"include": ["./src/**/*"]
 }

@@ -1,16 +1,20 @@
+import { Rule } from "eslint";
+
 declare global {
 	namespace ESLint {
 		interface Plugin {
 			configs: Record<string, Config>;
-			rules: Record<string, RuleFactory<string>>;
+			rules: Record<string, RuleFactory>;
 		}
 
 		type Config = {};
 
-		type RuleFactory<Message extends string> = {
-			meta: RuleMeta<Message>;
-			create: (cx: RuleContext<Message>) => Rule;
-		};
+		// type RuleFactory<Message extends string> = {
+		// 	meta: RuleMeta<Message>;
+		// 	create: (cx: RuleContext<Message>) => Rule;
+		// };
+
+		type RuleFactory = Rule.RuleModule;
 
 		type RuleMeta<Message extends string> = {
 			type: "layout";

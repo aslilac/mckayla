@@ -4,7 +4,7 @@
 	"description": "ESLint plugin for me and no one else",
 	"author": "McKayla Washburn <mckayla@hey.com>",
 	"license": "MIT",
-	"main": "target/plugin.js",
+	"main": "./target/index.js",
 	"repository": "https://github.com/aslilac/mckayla",
 	"files": [
 		"target/**"

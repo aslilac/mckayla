@@ -1,5 +1,5 @@
-import { sortImports } from "./sortImports";
+import { importOrder } from "./importOrder";
 
 export default {
-	"sort-imports": sortImports,
+	"import-order": importOrder,
 };

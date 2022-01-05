@@ -7,7 +7,7 @@ type ExecTask = {
 	result: Promise<number>;
 };
 
-async function time(task: Promise<unknown>, emoji = "🌺") {
+async function time(task: Promise<unknown>, emoji = "⏱") {
 	const start = Date.now();
 	await task;
 	const end = Date.now();
@@ -15,7 +15,7 @@ async function time(task: Promise<unknown>, emoji = "🌺") {
 	console.log(`${emoji}  Done in ${(end - start / 1000).toFixed(2)}s`);
 }
 
-function printCommand(name: string, args: string[] = [], color = "inverse") {
+export function printCommand(name: string, args: string[] = [], color = "inverse") {
 	if (typeof args === "string") {
 		color = args;
 		args = [];
@@ -42,12 +42,12 @@ export function startTask(name: string, args: string[] = []): ExecTask {
 		// are properly duplicated
 		env: {
 			...process.env,
-			// @ts-expect-error
+			// @ts-expect-error - The types that chalk provides here are incorrect
 			FORCE_COLOR: chalk.supportsColor.level,
 		},
 	});
 	const result = new Promise<number>((resolve) =>
-		proc.on("close", (exitCode) => resolve(exitCode)),
+		proc.on("close", (exitCode) => resolve(exitCode ?? 1)),
 	);
 
 	return { proc, result };
@@ -56,6 +56,6 @@ export function startTask(name: string, args: string[] = []): ExecTask {
 export function exec(name: string, args: string[] = []): Promise<number> {
 	printCommand(name, args);
 	const task = startTask(name, args);
-	time(task);
+	void time(task.result);
 	return task.result;
 }

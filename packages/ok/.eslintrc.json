@@ -1,0 +1,6 @@
+{
+	"extends": ["mckayla"],
+	"rules": {
+		"no-console": "off"
+	}
+}

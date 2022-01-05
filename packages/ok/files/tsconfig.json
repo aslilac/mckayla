@@ -1,8 +1,0 @@
-{
-	"extends": "@mckayla/tsconfig",
-	"compilerOptions": {
-		"module": "commonjs",
-		"outDir": "target"
-	},
-	"include": ["src/**/*"]
-}

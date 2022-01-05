@@ -1,4 +1,3 @@
-import { Rule } from "eslint";
 import { ImportDeclaration } from "estree";
 
 const messages = {};
@@ -34,7 +33,7 @@ function printImportDeclaration(node: ImportDeclaration) {
 	return x;
 }
 
-export const sortImports: Rule.RuleModule = {
+export const importOrder: ESLint.RuleFactory = {
 	meta: {
 		type: "layout",
 

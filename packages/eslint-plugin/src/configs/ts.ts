@@ -1,6 +1,6 @@
 export default {
 	parser: "@typescript-eslint/parser",
-	ignorePatterns: ["build/**/*", "dist/**/*", "target/**/*"],
+	ignorePatterns: ["**/build/**", "**/dist/**", "**/target/**"],
 	extends: ["eslint:recommended", "prettier"],
 	reportUnusedDisableDirectives: true,
 	env: {
@@ -31,6 +31,7 @@ export default {
 				"@typescript-eslint/no-unused-vars": "off",
 				"@typescript-eslint/prefer-readonly": "error",
 				"@typescript-eslint/prefer-ts-expect-error": "error",
+				"no-promise-executor-return": "off",
 				"no-shadow": "off",
 			},
 		},

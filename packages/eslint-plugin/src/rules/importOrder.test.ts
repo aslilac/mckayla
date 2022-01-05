@@ -1,6 +1,6 @@
 import { ESLint } from "eslint";
 
-import { sortImports } from "./sortImports";
+import { importOrder } from "./importOrder";
 
 const sample = `
 import 'hi';
@@ -13,15 +13,15 @@ import type * as x from 'x';
 import type y from 'y';
 `;
 
-describe("@mckayla/imports", () => {
+describe("@mckayla/import-order", () => {
 	const eslint = new ESLint({
-		plugins: { "@mckayla/eslint-plugin": { rules: { "sort-imports": sortImports } } },
+		plugins: { "@mckayla/eslint-plugin": { rules: { "import-order": importOrder } } },
 
 		useEslintrc: false,
 		baseConfig: {
 			parser: "@typescript-eslint/parser",
 			plugins: ["@mckayla"],
-			rules: { "@mckayla/sort-imports": "error" },
+			rules: { "@mckayla/import-order": "error" },
 		},
 	});
 

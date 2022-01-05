@@ -1,129 +1,80 @@
 #!/usr/bin/env node
-import { exec } from "./exec";
+import { log, Reservoir, TaskList } from "./base";
+import { startTask } from "./exec";
 
 const [, , command] = process.argv;
 
-type QueueItem = {
-	target: "out" | "err";
-	buf: Buffer;
-};
+const quiet = process.argv.includes("-q");
 
-function queue() {
-	const q: QueueItem[] = [];
+export function session(taskDefinitions: Array<[string, string[]]>) {
+	const tasks = new Set(taskDefinitions);
 
-	return {
-		out(buf: Buffer) {
-			q.push({ target: "out", buf });
-		},
-
-		err(buf: Buffer) {
-			q.push({ target: "err", buf });
-		},
-
-		flush() {
-			q.forEach((segment) => {
-				if (segment.target === "out") {
-					process.stdout.write(segment.buf);
-				}
-
-				if (segment.target === "err") {
-					process.stderr.write(segment.buf);
-				}
-			});
-		},
-	};
-}
-
-export async function session() {
-	const tasks = new Map<number, [string, string[]?]>();
-
+	const taskList = new TaskList();
 	const start = Date.now();
 
-	tasks.set(0, [
-		"prettier",
-		["--ignore-path", ".gitignore", shouldFix ? "--write" : "--check", "."],
-	]);
-	tasks.set(1, ["eslint", [/*"--ignore-path", ".gitignore",*/ "."]]);
-	tasks.set(2, ["jest", ["--passWithNoTests"]]);
-	tasks.set(3, ["tsc", ["-p", ".", "--noEmit"]]);
-
-	function clearOverview() {
-		// This is to ensure that our x position is always reset to 0
-		if (process.stdout.isTTY) {
-			process.stdout.write("\n");
-			process.stdout.moveCursor(0, -(tasks.size + 1));
-			process.stdout.clearScreenDown();
-		}
-	}
-
-	function printOverview() {
-		if (tasks.size === 0) {
-			const end = Date.now();
-			logTime(end - start);
-		}
-
-		for (const [task, description] of tasks) {
-			printCommand(...description);
-		}
-
-		if (!process.stdout.isTTY) {
-			process.stdout.write("\n");
-		}
-	}
-
-	for (const [i, description] of tasks) {
-		// const d = startTask("sleep", [(i + (Math.random() * 2 - 1)).toPrecision(3)]);
-		const d = startTask(...description);
-		const chunks = queue();
-
-		d.proc.stdout.on("data", (data) => chunks.out(data));
-		d.proc.stderr.on("data", (data) => chunks.err(data));
+	for (const [name, args] of tasks) {
+		// const d = startTask("sleep", [(i + Math.random() * 1.5).toPrecision(3)]);
+		const d = startTask(name, args);
+		const taskId = taskList.addTask(name, args.map((arg) => `"${arg}"`).join(" "));
+		const storage = new Reservoir([
+			[d.proc.stdout, process.stdout],
+			[d.proc.stderr, process.stderr],
+		]);
 
 		d.result.then((exitCode) => {
-			clearOverview();
-			printCommand(...description, exitCode ? "inverse.red" : "inverse");
-			chunks.flush();
-			logTime(Date.now() - start, "⏱");
-			tasks.delete(i);
-			if (process.stdout.isTTY) printOverview();
-		});
+			process.exitCode! |= exitCode;
+			taskList.completeTask(
+				taskId,
+				exitCode ? "inverse.red" : quiet ? "inverse.green" : "inverse",
+				() => {
+					if (exitCode || !quiet) {
+						storage.drain();
+					}
+					if (!quiet && tasks.size > 1) log.time(Date.now() - start);
+				},
+			);
+			if (taskList.taskCount === 0) {
+				log.time(Date.now() - start, "🌺");
+			}
+		}, console.error);
 	}
-
-	printOverview();
 }
 
-const shouldFix = Boolean(process.env.CI);
+const shouldFix = !process.env.CI;
 
-async function main() {
+function main() {
 	switch (command) {
-		case "session":
-			await session();
+		case undefined:
+		case ".":
+			session([
+				["prettier", [shouldFix ? "--write" : "--check", "."]],
+				["eslint", ["--fix", "."]],
+				["jest", []],
+				["tsc", ["-p", ".", "--noEmit"]],
+			]);
 			break;
 		case "doc":
-			await exec("typedoc");
+			session([["typedoc", []]]);
 			break;
 		case "fmt":
-			await exec("prettier", ["--ignore-path", ".gitignore", "--write", "."]);
+			session([["prettier", ["--write", "."]]]);
 			break;
 		case "check":
 		case "ci":
-			await exec("prettier", [
-				"--ignore-path",
-				".gitignore",
-				shouldFix ? "--write" : "--check",
-				".",
+			session([
+				["prettier", ["--ignore-path", ".gitignore", "--check", "."]],
+				["eslint", ["--ignore-path", ".gitignore", "."]],
+				["jest", []],
+				["tsc", ["-p", ".", "--noEmit", "--pretty"]],
 			]);
-			await exec("eslint", ["--ignore-path", ".gitignore", "."]);
-			await exec("jest");
-			await exec("tsc", ["-p", ".", "--noEmit"]);
 			break;
 		case "test":
-			await exec("jest");
+			session([["jest", []]]);
 			break;
 		case "-v":
 		case "-V":
 		case "--version":
-			console.log("v0.0.0");
+			console.log("ok v0.0.0");
 			break;
 		default:
 			console.log(":p");
