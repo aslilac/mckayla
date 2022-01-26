@@ -9,9 +9,9 @@
 	"repository": "https://github.com/aslilac/mckayla",
 	"bugs": "https://github.com/aslilac/mckayla/issues",
 	"type": "commonjs",
-	"main": "./target/main.js",
-	"module": "./target/module/main.d.ts",
-	"types": "./target/main.d.ts",
+	"main": "./target/index.js",
+	"module": "./target/module/index.d.ts",
+	"types": "./target/index.d.ts",
 	"files": [
 		"target/**"
 	],

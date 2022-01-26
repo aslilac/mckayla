@@ -1,4 +1,5 @@
 export * from "./array";
+export * from "./dbg";
 export * from "./thread";
 export * from "./use";
 
