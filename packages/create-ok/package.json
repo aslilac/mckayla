@@ -1,6 +1,6 @@
 {
 	"name": "create-ok",
-	"version": "1.0.5",
+	"version": "1.0.6",
 	"author": "McKayla Washburn <mckayla@hey.com>",
 	"description": "Create an ok project",
 	"keywords": [],
@@ -9,11 +9,12 @@
 	"repository": "https://github.com/aslilac/mckayla",
 	"bugs": "https://github.com/aslilac/mckayla/issues",
 	"type": "module",
-	"bin": "./target/create-ok.js",
+	"bin": "./build/create-ok.js",
 	"files": [
-		"target/**"
+		"build/**"
 	],
 	"dependencies": {
+		"chalk": "^4.1.2",
 		"node-fetch": "^3.1.0",
 		"succulent": "^0.13.0"
 	},

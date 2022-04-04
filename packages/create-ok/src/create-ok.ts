@@ -1,69 +1,69 @@
 #!/usr/bin/env node
+import chalk from "chalk";
 import * as fs from "fs/promises";
 import * as path from "path";
 import fetch from "node-fetch";
 import { is, oneOf } from "succulent";
 
-type ArtifactName =
-	| ".clang-format"
-	| ".github/workflows/main.yml"
-	| ".eslintrc.json"
-	| ".gitignore"
-	| ".prettierignore"
-	| ".prettierrc.json"
-	| ".stylelintrc.json"
-	| ".swift-format.json"
-	| "Cargo.toml"
-	| "CODE_OF_CONDUCT.md"
-	| "jest.config.js"
-	| "LICENSE"
-	| "package.json"
-	| "tsconfig.build.json"
-	| "tsconfig.json";
+const artifactSources = new Set<string>([
+	".clang-format",
+	".github/workflows/main.yml",
+	".eslintrc.json",
+	".gitignore",
+	".prettierignore",
+	".prettierrc.json",
+	".stylelintrc.json",
+	".swift-format.json",
+	"Cargo.toml",
+	"CODE_OF_CONDUCT.md",
+	"jest.config.js",
+	"LICENSE",
+	"package.json",
+	"tsconfig.build.json",
+	"tsconfig.json",
+]);
 
-type ArtifactUrlOptions = { repo?: string; baseUrl?: string };
-function artifact(
-	artifactName: ArtifactName,
-	options: ArtifactUrlOptions = {},
-): [ArtifactName, string] {
+type ArtifactUrlOptions = { repo?: string; branch?: string; baseUrl?: string };
+
+function artifact(artifactName: string, options: ArtifactUrlOptions = {}): string {
 	const {
 		repo = "aslilac/mckayla",
+		branch = "main",
 		baseUrl = options.repo ? "./" : "./packages/create-ok/static",
 	} = options;
 
-	return [
-		artifactName,
-		path.join("https://github.com/", repo, "raw/main", baseUrl, artifactName),
-	];
+	return path.join("https://github.com/", repo, "raw", branch, baseUrl, artifactName);
 }
 
-const artifactSources = new Map<ArtifactName, string>([
-	// Files from this repo
-	artifact(".clang-format"),
-	artifact(".github/workflows/main.yml"),
-	artifact(".eslintrc.json"),
-	artifact(".gitignore"),
-	artifact(".prettierignore"),
-	artifact(".prettierrc.json"),
-	artifact(".stylelintrc.json"),
-	artifact(".swift-format.json"),
-	artifact("Cargo.toml"),
-	artifact("jest.config.js"),
-	artifact("package.json"),
-	artifact("tsconfig.build.json"),
-	artifact("tsconfig.json"),
+const options = {
+	force: false,
+};
 
-	// Files in aslilac/aslilac
-	artifact("CODE_OF_CONDUCT.md", { repo: "aslilac/aslilac" }),
-	artifact("LICENSE", { repo: "aslilac/aslilac" }),
-]);
+const artifactNames = process.argv.slice(2).filter((option) => {
+	switch (option) {
+		case "-f":
+		case "--force":
+			options.force = true;
+			return false;
+	}
 
-const artifactNames = process.argv.slice(2);
+	return true;
+});
 
-async function placeFile(artifactName: ArtifactName) {
-	const source = artifactSources.get(artifactName)!;
+async function placeFile(artifactName: string) {
+	const artifactSource = artifact(artifactName);
 
-	const response = await fetch(source);
+	const artifactDir = path.dirname(artifactName);
+	const isDirectory = await fs.stat(artifactDir).then(
+		(dirStats) => dirStats.isDirectory(),
+		() => false,
+	);
+
+	if (!isDirectory) {
+		await fs.mkdir(artifactDir, { recursive: true });
+	}
+
+	const response = await fetch(artifactSource);
 	const content = new Uint8Array(await response.arrayBuffer());
 
 	const outputPath = path.join(process.cwd(), artifactName);
@@ -72,8 +72,9 @@ async function placeFile(artifactName: ArtifactName) {
 
 async function main() {
 	for (const artifactName of artifactNames) {
-		if (!is(artifactName, oneOf(artifactSources.keys()))) {
-			console.error("Invalid file name:", artifactName);
+		if (!options.force && !is(artifactName, oneOf(artifactSources.keys()))) {
+			console.error(chalk.red("error:"), "Unknown file name:", artifactName);
+			console.info("You can skip this check by running the command with `--force`");
 			continue;
 		}
 
