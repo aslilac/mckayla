@@ -13,7 +13,7 @@
 		"typescript": "^4.5.4"
 	},
 	"scripts": {
-		"fmt": "prettier --ignore-file .gitignore --write .",
+		"fmt": "prettier --write .",
 		"lint": "eslint ."
 	}
 }
