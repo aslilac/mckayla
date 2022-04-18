@@ -1,9 +1,0 @@
-{
-	"extends": "@mckayla/tsconfig",
-	"compilerOptions": {
-		"module": "commonjs",
-		"outDir": "target",
-		"noUnusedLocals": false
-	},
-	"include": ["./src/**/*"]
-}

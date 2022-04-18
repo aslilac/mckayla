@@ -1,5 +1,0 @@
-default:
-    - ["prettier", ["--write", "."]]
-    - ["eslint", ["--fix", "."]]
-    - ["jest"]
-    - ["tsc", ["-p", ".", "--noEmit"]]
