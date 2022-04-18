@@ -6,5 +6,5 @@
 		"outDir": "target",
 		"types": ["jest"]
 	},
-	"include": ["../@types/**/*.d.ts", "src/**/*"]
+	"include": ["./src/**/*"]
 }
