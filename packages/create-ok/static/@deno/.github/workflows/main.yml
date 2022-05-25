@@ -1,0 +1,21 @@
+name: main
+
+on:
+    push:
+        branches: [main]
+    pull_request:
+        branches: [main]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v2
+
+            - uses: denoland/setup-deno@v1
+              name: JavaScript — Prepare (1/2)
+              with:
+                  deno-version: v1.x
+
+            - run: deno fmt --check

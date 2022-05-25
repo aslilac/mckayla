@@ -16,6 +16,8 @@ const artifactSources = new Set<string>([
 	".swift-format.json",
 	"Cargo.toml",
 	"CODE_OF_CONDUCT.md",
+	"deno.jsonc",
+	"imports.json@deno",
 	"jest.config.js",
 	"LICENSE",
 	"package.json",
@@ -26,13 +28,30 @@ const artifactSources = new Set<string>([
 type ArtifactUrlOptions = { repo?: string; branch?: string; baseUrl?: string };
 
 function artifact(artifactName: string, options: ArtifactUrlOptions = {}): string {
+	const split = artifactName.split("@");
+
+	if (split.length > 2) {
+		throw new Error(`Too many version tags in ${artifactName}!`);
+	}
+
+	const [baseArtifactName, version] = split;
+	const versionBase = version ? `@${version}` : ".";
+
 	const {
 		repo = "aslilac/mckayla",
 		branch = "main",
 		baseUrl = options.repo ? "./" : "./packages/create-ok/static",
 	} = options;
 
-	return path.join("https://github.com/", repo, "raw", branch, baseUrl, artifactName);
+	return path.join(
+		"https://github.com/",
+		repo,
+		"raw",
+		branch,
+		baseUrl,
+		versionBase,
+		baseArtifactName!,
+	);
 }
 
 const options = {
