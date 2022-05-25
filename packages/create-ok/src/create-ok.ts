@@ -27,7 +27,7 @@ const artifactSources = new Set<string>([
 
 type ArtifactUrlOptions = { repo?: string; branch?: string; baseUrl?: string };
 
-function artifact(artifactName: string, options: ArtifactUrlOptions = {}): string {
+function artifactParser(artifactName: string): [base: string, version: string] {
 	const split = artifactName.split("@");
 
 	if (split.length > 2) {
@@ -37,6 +37,14 @@ function artifact(artifactName: string, options: ArtifactUrlOptions = {}): strin
 	const [baseArtifactName, version] = split;
 	const versionBase = version ? `@${version}` : ".";
 
+	return [baseArtifactName!, versionBase];
+}
+
+function artifact(
+	baseArtifactName: string,
+	versionBase: string,
+	options: ArtifactUrlOptions = {},
+): string {
 	const {
 		repo = "aslilac/mckayla",
 		branch = "main",
@@ -70,7 +78,8 @@ const artifactNames = process.argv.slice(2).filter((option) => {
 });
 
 async function placeFile(artifactName: string) {
-	const artifactSource = artifact(artifactName);
+	const [baseArtifactName, versionBase] = artifactParser(artifactName);
+	const artifactSource = artifact(baseArtifactName, versionBase);
 
 	const artifactDir = path.dirname(artifactName);
 	const isDirectory = await fs.stat(artifactDir).then(
@@ -83,9 +92,15 @@ async function placeFile(artifactName: string) {
 	}
 
 	const response = await fetch(artifactSource);
+
+	if (!response.ok) {
+		console.error("Failed to fetch artifact", artifactName);
+		return;
+	}
+
 	const content = new Uint8Array(await response.arrayBuffer());
 
-	const outputPath = path.join(process.cwd(), artifactName);
+	const outputPath = path.join(process.cwd(), baseArtifactName);
 	await fs.writeFile(outputPath, content);
 }
 
