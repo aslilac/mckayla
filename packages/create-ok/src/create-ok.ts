@@ -19,7 +19,7 @@ const artifactSources = new Set<string>([
 	"Cargo.toml",
 	"CODE_OF_CONDUCT.md",
 	"deno.jsonc",
-	"imports.json@deno",
+	"imports.importmap@deno",
 	"jest.config.js",
 	"LICENSE",
 	"package.json",
