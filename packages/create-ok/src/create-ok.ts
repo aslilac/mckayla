@@ -8,6 +8,8 @@ import { is, oneOf } from "succulent";
 const artifactSources = new Set<string>([
 	".clang-format",
 	".github/workflows/main.yml",
+	".github/workflows/main.yml@deno",
+	".vscode/settings.json@deno",
 	".eslintrc.json",
 	".gitignore",
 	".prettierignore",
