@@ -1,5 +1,5 @@
 {
-	"importMap": "./imports.json",
+	"importMap": "./imports.importmap",
 	"fmt": {
 		"options": {
 			"indentWidth": 2,
