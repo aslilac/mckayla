@@ -3,31 +3,6 @@ import chalk from "chalk";
 import * as fs from "fs/promises";
 import * as path from "path";
 import fetch from "node-fetch";
-import { is, oneOf } from "succulent";
-
-const artifactSources = new Set<string>([
-	".cargo/.gitignore",
-	".cargo/config.toml",
-	".clang-format",
-	".github/workflows/main.yml",
-	".github/workflows/main.yml@deno",
-	".vscode/settings.json@deno",
-	".eslintrc.json",
-	".gitignore",
-	".prettierignore",
-	".prettierrc.json",
-	".stylelintrc.json",
-	".swift-format.json",
-	"Cargo.toml",
-	"CODE_OF_CONDUCT.md",
-	"deno.jsonc",
-	"imports.importmap@deno",
-	"jest.config.js",
-	"LICENSE",
-	"package.json",
-	"tsconfig.build.json",
-	"tsconfig.json",
-]);
 
 type ArtifactUrlOptions = { repo?: string; branch?: string; baseUrl?: string };
 
@@ -66,20 +41,7 @@ function artifact(
 	);
 }
 
-const options = {
-	force: false,
-};
-
-const artifactNames = process.argv.slice(2).filter((option) => {
-	switch (option) {
-		case "-f":
-		case "--force":
-			options.force = true;
-			return false;
-	}
-
-	return true;
-});
+const artifactNames = process.argv.slice(2);
 
 async function placeFile(artifactName: string) {
 	const [baseArtifactName, versionBase] = artifactParser(artifactName);
@@ -98,7 +60,7 @@ async function placeFile(artifactName: string) {
 	const response = await fetch(artifactSource);
 
 	if (!response.ok) {
-		console.error("Failed to fetch artifact", artifactName);
+		console.error(chalk.red("error:"), "Unknown file name:", artifactName);
 		return;
 	}
 
@@ -108,14 +70,8 @@ async function placeFile(artifactName: string) {
 	await fs.writeFile(outputPath, content);
 }
 
-async function main() {
+function main() {
 	for (const artifactName of artifactNames) {
-		if (!options.force && !is(artifactName, oneOf(artifactSources.keys()))) {
-			console.error(chalk.red("error:"), "Unknown file name:", artifactName);
-			console.info("You can skip this check by running the command with `--force`");
-			continue;
-		}
-
 		placeFile(artifactName);
 	}
 }
