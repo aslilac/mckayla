@@ -6,6 +6,7 @@ import fetch from "node-fetch";
 import { is, oneOf } from "succulent";
 
 const artifactSources = new Set<string>([
+	".cargo/config.toml",
 	".clang-format",
 	".github/workflows/main.yml",
 	".github/workflows/main.yml@deno",
