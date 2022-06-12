@@ -1,9 +1,10 @@
 {
 	"name": "@mckayla/prettier",
-	"version": "1.0.1",
-	"description": "Prettier config for me and no one else",
+	"version": "1.0.2",
 	"author": "McKayla Washburn <mckayla@hey.com>",
+	"description": "Prettier config for me and no one else",
 	"license": "MIT",
+	"homepage": "https://github.com/aslilac/mckayla",
 	"repository": "https://github.com/aslilac/mckayla",
 	"keywords": [
 		"prettier"
