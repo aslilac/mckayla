@@ -17,8 +17,13 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: denoland/setup-deno@v1
+      - uses: erlef/setup-beam@v1
         with:
-          deno-version: v1.x
+          otp-version: "25.0"
+          gleam-version: "0.22.1"
 
-      - run: deno fmt --check
+      - run: gleam format --check
+
+      - run: gleam test
+
+      - run: gleam build
