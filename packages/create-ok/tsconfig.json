@@ -1,7 +1,0 @@
-{
-	"extends": "@mckayla/tsconfig",
-	"compilerOptions": {
-		"outDir": "./build/"
-	},
-	"include": ["./src/**/*"]
-}

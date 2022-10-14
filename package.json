@@ -4,13 +4,12 @@
 		"packages/*"
 	],
 	"devDependencies": {
-		"@mckayla/ok": "*",
 		"@mckayla/prettier": "*",
 		"@mckayla/tsconfig": "*",
-		"eslint": "^8.5.0",
+		"eslint": "^8.25.0",
 		"eslint-config-mckayla": "*",
-		"prettier": "^2.5.1",
-		"typescript": "^4.5.4"
+		"prettier": "^2.7.1",
+		"typescript": "^4.8.4"
 	},
 	"scripts": {
 		"fmt": "prettier --write .",

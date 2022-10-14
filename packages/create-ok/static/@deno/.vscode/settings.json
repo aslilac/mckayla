@@ -1,9 +1,0 @@
-{
-	"deno.enable": true,
-	"deno.lint": true,
-	"deno.unstable": false,
-	"editor.tabSize": 2,
-	"[javascript][json][jsonc][typescript][typescriptreact]": {
-		"editor.defaultFormatter": "denoland.vscode-deno"
-	}
-}
