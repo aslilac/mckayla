@@ -11,6 +11,6 @@
 	"repository": "https://github.com/aslilac/mckayla",
 	"bugs": "https://github.com/aslilac/mckayla/issues",
 	"dependencies": {
-		"@mckayla/eslint-plugin": "0.1.15"
+		"@mckayla/eslint-plugin": "0.1.16"
 	}
 }
