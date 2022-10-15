@@ -1,13 +1,15 @@
 {
 	"name": "eslint-config-mckayla",
-	"version": "1.0.4",
-	"description": "ESLint config for me and no one else",
+	"version": "1.0.5",
 	"author": "McKayla Washburn <mckayla@hey.com>",
-	"license": "MIT",
-	"repository": "https://github.com/aslilac/mckayla",
+	"description": "An ESLint config for people named McKayla (and maybe you too)",
 	"keywords": [
 		"eslint"
 	],
+	"license": "MIT",
+	"homepage": "https://github.com/aslilac/mckayla/tree/main/packages/eslint-config",
+	"repository": "https://github.com/aslilac/mckayla",
+	"bugs": "https://github.com/aslilac/mckayla/issues",
 	"dependencies": {
 		"@mckayla/eslint-plugin": "0.1.15"
 	}

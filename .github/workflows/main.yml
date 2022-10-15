@@ -37,7 +37,7 @@ jobs:
 
       - run: |
           npm install
-          git diff --exit-code
+          # git diff --exit-code
           npm bin >> $GITHUB_PATH                       # Workspace binaries
           echo "./node_modules/.bin/" >> $GITHUB_PATH   # Relative binaries
 

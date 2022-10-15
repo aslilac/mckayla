@@ -1,11 +1,16 @@
 {
 	"name": "@mckayla/eslint-plugin",
-	"version": "0.1.15",
-	"description": "ESLint plugin for me and no one else",
+	"version": "0.1.16",
 	"author": "McKayla Washburn <mckayla@hey.com>",
+	"description": "An ESLint plugin for people named McKayla (and maybe you too)",
+	"keywords": [
+		"eslint"
+	],
 	"license": "MIT",
-	"main": "./build/index.js",
+	"homepage": "https://github.com/aslilac/mckayla/tree/main/packages/eslint-plugin",
 	"repository": "https://github.com/aslilac/mckayla",
+	"bugs": "https://github.com/aslilac/mckayla/issues",
+	"main": "./build/index.js",
 	"files": [
 		"build/**"
 	],

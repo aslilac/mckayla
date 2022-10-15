@@ -1,13 +1,14 @@
 {
 	"name": "@mckayla/tsconfig",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"author": "McKayla Washburn <mckayla@hey.com>",
-	"description": "TypeScript config for me and no one else",
-	"license": "MIT",
-	"homepage": "https://github.com/aslilac/mckayla",
-	"repository": "https://github.com/aslilac/mckayla",
+	"description": "A TypeScript config for people named McKayla (and maybe you too)",
 	"keywords": [
 		"typescript",
 		"tsconfig"
-	]
+	],
+	"license": "MIT",
+	"homepage": "https://github.com/aslilac/mckayla/tree/main/packages/tsconfig",
+	"repository": "https://github.com/aslilac/mckayla",
+	"bugs": "https://github.com/aslilac/mckayla/issues"
 }
