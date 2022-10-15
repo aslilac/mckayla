@@ -1,18 +1,6 @@
 # @mckayla/tsconfig
 
-<details>
-<summary><img alt="basic configuration example" src="tsconfig.json.svg" /></summary>
+![basic configuration example](tsconfig.json.svg)
 
-```json
-{
-	"extends": "@mckayla/tsconfig",
-	"compilerOptions": {
-		"outDir": "./build/",
-		"types": [],
-		"baseUrl": "."
-	},
-	"include": ["./src/**/*"]
-}
-```
-
-</details>
+<sub><em>I am truly, deeply sorry about how inaccessible using a screenshot for this is,
+but also, how did you get here?</em></sub>
