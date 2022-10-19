@@ -22,11 +22,8 @@ export default {
 				"@typescript-eslint/array-type": ["error", { default: "array-simple" }],
 				"@typescript-eslint/explicit-module-boundary-types": "off",
 				"@typescript-eslint/no-explicit-any": "error",
+				"@typescript-eslint/no-misused-promises": "off",
 				"@typescript-eslint/no-namespace": "off",
-				// I find this entirely too useful to make an error, but it
-				// can be useful. Maybe I should leave it a warning and manually
-				// disable it with comments.
-				"@typescript-eslint/no-non-null-assertion": "off",
 				"@typescript-eslint/no-shadow": "error",
 				"@typescript-eslint/no-unused-vars": "off",
 				"@typescript-eslint/prefer-readonly": "error",

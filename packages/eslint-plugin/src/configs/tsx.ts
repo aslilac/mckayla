@@ -7,6 +7,7 @@ export default {
 	],
 	settings: { react: { version: "detect" } },
 	rules: {
+		"react/react-in-jsx-scope": "off",
 		"react-hooks/exhaustive-deps": "off",
 	},
 } as ESLint.Config;
