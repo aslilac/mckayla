@@ -1,13 +1,9 @@
 export default {
-	extends: [
-		"plugin:@mckayla/ts",
-		"plugin:react/recommended",
-		"plugin:react-hooks/recommended",
-		"plugin:jsx-a11y/strict",
-	],
+	extends: ["plugin:@mckayla/ts", "plugin:react/recommended"],
 	settings: { react: { version: "detect" } },
 	rules: {
+		"class-methods-use-this": "off",
+		"react/prop-types": "off",
 		"react/react-in-jsx-scope": "off",
-		"react-hooks/exhaustive-deps": "off",
 	},
 } as ESLint.Config;
