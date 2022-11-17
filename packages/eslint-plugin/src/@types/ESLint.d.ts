@@ -3,8 +3,8 @@ import { Rule } from "eslint";
 declare global {
 	namespace ESLint {
 		interface Plugin {
-			configs: Record<string, Config>;
-			rules: Record<string, RuleFactory>;
+			configs?: Record<string, Config>;
+			rules?: Record<string, RuleFactory>;
 		}
 
 		type Config = {};
