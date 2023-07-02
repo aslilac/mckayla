@@ -1,6 +1,6 @@
 {
 	"name": "eslint-config-mckayla",
-	"version": "1.0.5",
+	"version": "1.0.7",
 	"author": "McKayla Washburn <mckayla@hey.com>",
 	"description": "An ESLint config for people named McKayla (and maybe you too)",
 	"keywords": [
@@ -11,6 +11,6 @@
 	"repository": "https://github.com/aslilac/mckayla",
 	"bugs": "https://github.com/aslilac/mckayla/issues",
 	"dependencies": {
-		"@mckayla/eslint-plugin": "0.1.16"
+		"@mckayla/eslint-plugin": "0.11.0"
 	}
 }
