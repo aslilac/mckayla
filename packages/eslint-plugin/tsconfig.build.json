@@ -1,0 +1,7 @@
+{
+	"extends": ".",
+	"compilerOptions": {
+		"module": "commonjs"
+	},
+	"exclude": ["./**/*.test.*"]
+}

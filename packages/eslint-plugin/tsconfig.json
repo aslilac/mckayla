@@ -2,9 +2,7 @@
 	"extends": "@mckayla/tsconfig",
 	"compilerOptions": {
 		"outDir": "./build/",
-		"module": "commonjs",
-		"types": ["jest"],
-		"noImplicitAny": false
+		"baseUrl": "."
 	},
 	"include": ["./src/**/*"]
 }

@@ -1,6 +1,6 @@
 {
 	"name": "@mckayla/eslint-plugin",
-	"version": "0.1.16",
+	"version": "0.10.1",
 	"author": "McKayla Washburn <mckayla@hey.com>",
 	"description": "An ESLint plugin for people named McKayla (and maybe you too)",
 	"keywords": [
@@ -29,7 +29,7 @@
 		"ts-jest": "^29.0.3"
 	},
 	"scripts": {
-		"build": "tsc -p .",
+		"build": "tsc -p tsconfig.build.json",
 		"prepack": "npm run build",
 		"lint": "eslint .",
 		"test": "jest"

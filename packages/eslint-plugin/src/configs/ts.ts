@@ -22,6 +22,7 @@ export default {
 				"@typescript-eslint/array-type": ["error", { default: "array-simple" }],
 				"@typescript-eslint/explicit-module-boundary-types": "off",
 				"@typescript-eslint/no-explicit-any": "error",
+				"@typescript-eslint/no-non-null-assertion": "off",
 				"@typescript-eslint/no-misused-promises": "off",
 				"@typescript-eslint/no-namespace": "off",
 				"@typescript-eslint/no-shadow": "error",
@@ -36,11 +37,6 @@ export default {
 				"no-promise-executor-return": "off",
 				"no-shadow": "off",
 			},
-		},
-		{
-			files: ["__tests__/**/*.*", "*.spec.*", "*.test.*"],
-			extends: ["plugin:jest/recommended"],
-			env: { "jest/globals": true },
 		},
 	],
 	rules: {
