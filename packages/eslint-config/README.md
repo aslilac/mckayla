@@ -6,13 +6,13 @@ https://ray.so/?title=.eslintrc.json&theme=midnight&spacing=64&background=true&d
 
 ## Usage
 
--   Add the package as a dependency to your project
+- Add the package as a dependency to your project
 
 ```sh
 npm add eslint-config-mckayla
 ```
 
--   Update your .eslintrc.json
+- Update your .eslintrc.json
 
 ```json
 {
@@ -20,7 +20,7 @@ npm add eslint-config-mckayla
 }
 ```
 
--   If you use TSX, you'll want to use the TSX config variant
+- If you use TSX, you'll want to use the TSX config variant
 
 ```json
 {

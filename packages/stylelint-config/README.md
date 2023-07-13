@@ -6,13 +6,13 @@ https://ray.so/?title=.stylelintrc.json&theme=midnight&spacing=64&background=tru
 
 ## Usage
 
--   Add the package as a dependency to your project
+- Add the package as a dependency to your project
 
 ```sh
 npm add stylelint-config-mckayla
 ```
 
--   Update your .stylelintrc.json
+- Update your .stylelintrc.json
 
 ```json
 {

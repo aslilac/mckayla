@@ -8,8 +8,8 @@
 		"@mckayla/tsconfig": "*",
 		"eslint": "^8.25.0",
 		"eslint-config-mckayla": "*",
-		"prettier": "^2.7.1",
-		"typescript": "^4.8.4"
+		"prettier": "^3.0.0",
+		"typescript": "^5.1.6"
 	},
 	"scripts": {
 		"fmt": "prettier --write .",

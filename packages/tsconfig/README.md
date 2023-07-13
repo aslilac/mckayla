@@ -6,13 +6,13 @@ https://ray.so/?title=tsconfig.json&theme=midnight&spacing=64&background=true&da
 
 ## Usage
 
--   Add the package as a dependency to your project
+- Add the package as a dependency to your project
 
 ```sh
 npm add @mckayla/tsconfig
 ```
 
--   Update your tsconfig.json
+- Update your tsconfig.json
 
 ```json
 {

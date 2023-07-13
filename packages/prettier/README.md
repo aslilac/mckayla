@@ -6,13 +6,13 @@ https://ray.so/?title=.prettierrc.json&theme=midnight&spacing=64&background=true
 
 ## Usage
 
--   Add the package as a dependency to your project
+- Add the package as a dependency to your project
 
 ```sh
 npm add @mckayla/prettier
 ```
 
--   Update your .prettierrc.json
+- Update your .prettierrc.json
 
 ```json
 "@mckayla/prettier"
