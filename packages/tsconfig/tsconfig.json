@@ -1,20 +1,21 @@
 {
 	"compilerOptions": {
+		"allowArbitraryExtensions": true,
+		"allowImportingTsExtensions": true,
 		"declaration": true,
 		"esModuleInterop": true,
 		"exactOptionalPropertyTypes": false,
 		"experimentalDecorators": true,
 		"forceConsistentCasingInFileNames": true,
 		"jsx": "preserve",
-		"importsNotUsedAsValues": "remove",
 		"incremental": true,
 		"isolatedModules": true,
 		"module": "esnext",
-		"moduleResolution": "node",
-		"noEmitOnError": true,
+		"moduleResolution": "node16",
+		"noEmitOnError": false,
 		"noFallthroughCasesInSwitch": true,
 		"noImplicitAny": true,
-		"noImplicitOverride": true,
+		"noImplicitOverride": false,
 		"noImplicitReturns": true,
 		"noImplicitThis": true,
 		"noPropertyAccessFromIndexSignature": true,
@@ -28,6 +29,7 @@
 		"target": "esnext",
 		"types": [],
 		"useDefineForClassFields": true,
-		"useUnknownInCatchVariables": true
+		"useUnknownInCatchVariables": true,
+		"verbatimModuleSyntax": true
 	}
 }
