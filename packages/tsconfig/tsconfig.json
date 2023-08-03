@@ -1,7 +1,6 @@
 {
 	"compilerOptions": {
 		"allowArbitraryExtensions": true,
-		"allowImportingTsExtensions": true,
 		"declaration": true,
 		"esModuleInterop": true,
 		"exactOptionalPropertyTypes": false,
