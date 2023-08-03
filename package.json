@@ -6,13 +6,10 @@
 	"devDependencies": {
 		"@mckayla/prettier": "*",
 		"@mckayla/tsconfig": "*",
-		"eslint": "^8.25.0",
-		"eslint-config-mckayla": "*",
-		"prettier": "^3.0.0",
+		"prettier": "^3.0.1",
 		"typescript": "^5.1.6"
 	},
 	"scripts": {
-		"fmt": "prettier --write .",
-		"lint": "eslint ."
+		"fmt": "prettier --write ."
 	}
 }
