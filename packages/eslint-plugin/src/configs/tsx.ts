@@ -1,4 +1,4 @@
-export default {
+export = {
 	extends: ["plugin:@mckayla/ts", "plugin:react/recommended"],
 	settings: { react: { version: "detect" } },
 	rules: {
@@ -6,4 +6,4 @@ export default {
 		"react/prop-types": "off",
 		"react/react-in-jsx-scope": "off",
 	},
-} as ESLint.Config;
+} satisfies ESLint.Config;

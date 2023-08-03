@@ -1,4 +1,4 @@
-export default {
+export = {
 	parser: "@typescript-eslint/parser",
 	ignorePatterns: ["**/build/**", "**/dist/**", "**/target/**"],
 	extends: ["eslint:recommended", "prettier"],
@@ -62,4 +62,4 @@ export default {
 		"symbol-description": "error",
 		"yoda": "error",
 	},
-} as ESLint.Config;
+} satisfies ESLint.Config;

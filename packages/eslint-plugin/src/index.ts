@@ -1,4 +1,4 @@
-import * as configs from "./configs";
+import configs = require("./configs");
 
 export = {
 	configs,
