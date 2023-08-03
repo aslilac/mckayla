@@ -1,6 +1,6 @@
 {
 	"name": "@mckayla/tsconfig",
-	"version": "1.0.4",
+	"version": "1.0.5",
 	"author": "McKayla Washburn <mckayla@hey.com>",
 	"description": "A TypeScript config for people named McKayla (and maybe you too)",
 	"keywords": [
